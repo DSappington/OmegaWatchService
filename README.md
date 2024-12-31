@@ -7,12 +7,6 @@ Omega Watch Service is a modular and persistent file monitoring service for Java
 - **Persistent State**: Saves the directory's state to disk, enabling detection of changes across restarts.
 - **Modular Design**: Cleanly organized code for easy customization and extension.
 
-## Getting Started
-
-### Prerequisites
-- Java 17 or higher
-- Maven or Gradle (for build and dependency management)
-
 ### Installation
 1. Clone the repository:
    ```bash
