@@ -38,6 +38,14 @@ build/
 ### Mac OS ###
 .DS_Store
 
-## ignore the resources/omega-state folder
+## Ignore all files and subdirectories inside omega-state and omega-monitor
 src/main/resources/omega-state/**
 src/main/resources/omega-monitor/**
+
+## Allow the folders themselves to be tracked
+!src/main/resources/omega-state/
+!src/main/resources/omega-monitor/
+
+## Ignore specific files (optional, if necessary)
+src/main/resources/omega-state/*.*
+src/main/resources/omega-monitor/*.*
