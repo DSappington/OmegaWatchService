@@ -40,3 +40,4 @@ build/
 
 ## ignore the resources/omega-state folder
 src/main/resources/omega-state/**
+src/main/resources/omega-monitor/**

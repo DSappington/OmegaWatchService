@@ -1,5 +1,7 @@
 package com.omegawatch;
 
+import java.nio.file.Paths;
+import java.nio.file.StandardWatchEventKinds;
 import java.util.*;
 
 public class DirectoryComparator {
@@ -10,17 +12,23 @@ public class DirectoryComparator {
         // Detect added files
         currentFiles.stream()
                 .filter(file -> !previousFiles.contains(file))
-                .forEach(file -> System.out.println("Added: " + file));
+                .forEach(file -> {
+                    OmegaFileUtils.printOmegaChange(StandardWatchEventKinds.ENTRY_CREATE, Paths.get(file));
+                });
 
         // Detect deleted files
         previousFiles.stream()
                 .filter(file -> !currentFiles.contains(file))
-                .forEach(file -> System.out.println("Deleted: " + file));
+                .forEach(file -> {
+                    OmegaFileUtils.printOmegaChange(StandardWatchEventKinds.ENTRY_DELETE, Paths.get(file));
+                });
 
         // Detect modified files
         previousFiles.stream()
                 .filter(currentFiles::contains)
                 .filter(file -> !previousState.get(file).equals(currentState.get(file)))
-                .forEach(file -> System.out.println("Modified: " + file));
+                .forEach(file -> {
+                    OmegaFileUtils.printOmegaChange(StandardWatchEventKinds.ENTRY_MODIFY, Paths.get(file));
+                });
     }
 }

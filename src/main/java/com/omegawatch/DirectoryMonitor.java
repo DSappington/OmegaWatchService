@@ -23,7 +23,7 @@ public class DirectoryMonitor {
             for (WatchEvent<?> event : key.pollEvents()) {
                 WatchEvent.Kind<?> kind = event.kind();
                 Path path = (Path) event.context();
-                System.out.println("Event: " + kind + " on file: " + directory.resolve(path));
+                OmegaFileUtils.printOmegaChange(kind, directory.resolve(path));
             }
 
             if (!key.reset()) {
